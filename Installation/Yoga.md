@@ -1,6 +1,13 @@
 Lenovo X1 Yoga Gen1 Installation
 ================================
 
+General
+-------
+- Enable touch scrolling in Firefox: add to `/etc/security/pam_env.conf`:
+  ```
+  MOZ_USE_XINPUT2 DEFAULT=1 OVERRIDE=1
+  ```
+
 Kubuntu 20.04 LTS
 -----------------
 
