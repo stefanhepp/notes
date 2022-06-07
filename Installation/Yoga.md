@@ -16,7 +16,7 @@ Kubuntu 22.04 LTS
   apt install plasma-workspace-wayland kwin-wayland
   ```
 - Kubuntu not waking up from sleep
-  - Disable "Security Chip" in BIOS security settings
+  - Select "Discrete Chip" (TPM 1.2) as "Security Chip" in BIOS security settings, or disable "Security Chip" fully (but disabling prevents Windows PIN login from working)
   - Use UEFI boot mode
 - Display scaling
   - Setting display scaling to 150% (or any fractional value != 100%, 200%,..) leads to artifacts in Konsole,..
@@ -25,5 +25,8 @@ Kubuntu 22.04 LTS
     - In Konsole, Profile Settings -> *Appearance* -> *Miscancellous* -> Set *Line Spacing* to 1px.
 - Sleep mode, Fan Control
   - `apt install tlp thinkfan tp-smapi-dkms`
+- Pen Notetaking App: "Write"
+  - Download from: http://www.styluslabs.com/download/
+  - Unpack to ~/Apps folder, run `setup.sh`
 - Tablet mode
-  - ..
+  - Install Maliit Keyboard: TBD
