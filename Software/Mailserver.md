@@ -23,6 +23,12 @@ Preferred setup:
   - Disadvantage: Local users have no direct access to mailboxes via commandline readers such as mutt.
 - Access control is handled via Dovecot. Central configuration for accounts.
 
+Certificates
+------------
+
+LetsEncrypt Setup:
+- Add deploy-hook script in `/etc/letsencrypt/renewal-hooks/deploy` to restart postfix and dovecot after cert renewal.
+
 Postfix
 -------
 

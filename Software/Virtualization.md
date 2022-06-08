@@ -24,13 +24,6 @@ Virtualization Software:
 
 - **Hyper-V**:
 
-Linux Application Containers:
-- **AppImage**: Most portable, smallest size. Single file, no installation required, no repository or automatic updates. Community project.
-
-- **Snap**: Largest Appstore. Application must be installed via snapd. Single central appstore only, driven by Canonical.
-
-- **FlatPak**: Smallest Appstore, larger files. No real advantage over AppImages except allowing for individual repositories, enabling automatic updates without central store.
-
 
 LXC, LXD
 --------
