@@ -11,13 +11,16 @@ CAM Workflows
 - Design: KiCAD, Fusion360
     - Export to Gerber files
 - Generate GCode: FlatCam
+- Toolpath Simulation: CAMotics
 - CNC Milling: bCNC
     - Use Autoleveling
 
 ### CNC Milling
 - Design: FreeCAD (CAM Plugin), Fusion360
     - Generate GCode Toolpath
+- Toolpath Simulation: CAMotics
 - CNC Milling: bCNC
+
 
 ### Laser Cutting, Engraving
 - Design: Inkscape
@@ -46,6 +49,18 @@ Sources: https://github.com/vlachoudis/bCNC
 pip install --upgrade bCNC
 ```
 
+CAMotics
+--------
+
+Sources: https://github.com/CauldronDevelopmentLLC/CAMotics
+
+### Installation on Linux
+- Build from source: https://camotics.org/download.html#source-code
+    - Remove unused (?) dependency on libssl1.1 from SConstruct
+- Alternatively, follow the instructions from this page to install released dpkg: https://camotics.org/download.html#install
+    - Requires fixed version of libv8 on Kubuntu 22.04
+
+
 FlatCAM
 -------
 
@@ -56,5 +71,8 @@ Sources: https://bitbucket.org/jpcgt/flatcam.git
 git clone https://bitbucket.org/jpcgt/flatcam.git
 git checkout Beta
 ```
+You may need to make the following changes to `setup_ubuntu.sh`:
+```
 
+```
 
