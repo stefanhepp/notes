@@ -33,6 +33,22 @@ apt install blender spacenavd musescore audacity vlc kdenlive gimp inkscape
 apt install kdevelop clang clang-tidy cppcheck cmake cmake-gui git gitk kdiff3
 apt install python3-pip python3-serial python3-numpy python3-scipy python3-opencv python3-tk python3-pil.imagetk
 ```
+### Replace Firefox snap with apt on Ubuntu
+```
+sudo apt purge firefox
+sudo snap remove firefox
+rm -rf ~/Downloads/firefox.tmp
+sudo add-apt-repository ppa:mozillateam/ppa
+sudo apt update
+echo '
+Package: *
+Pin: release o=LP-PPA-mozillateam
+Pin-Priority: 1001
+' | sudo tee /etc/apt/preferences.d/mozilla-firefox
+echo 'Unattended-Upgrade::Allowed-Origins:: "LP-PPA-mozillateam:${distro_codename}";' | sudo tee /etc/apt/apt.conf.d/51unattended-upgrades-firefox
+sudo apt install firefox
+```
+
 
 ### KiCAD Installation
 

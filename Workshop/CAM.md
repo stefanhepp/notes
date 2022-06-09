@@ -8,7 +8,7 @@ CAM Workflows
     - Export to USB stick
 
 ### PCB Manufacturing
-- Design: KiCAD, Fusion360
+- Design: KiCAD, Fusion360, LibrePCB
     - Export to Gerber files
 - Generate GCode: FlatCam
 - Toolpath Simulation: CAMotics
@@ -39,6 +39,26 @@ FreeCAD
   LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libstdc++.so.6 /path/to/FreeCAD.appimage
   ```
 
+KiCAD
+-----
+
+### Installation on Linux
+
+Install from KiCAD PPA to get the latest versions:
+```
+sudo add-apt-repository --yes ppa:kicad/kicad-6.0-releases
+sudo apt update
+sudo apt install --install-recommends kicad
+```
+
+LibrePCB
+--------
+
+Sources: https://github.com/LibrePCB/LibrePCB
+
+### Installation on Linux
+- Install AppImage from https://librepcb.org/download/
+
 bCNC
 ----
 
@@ -48,18 +68,6 @@ Sources: https://github.com/vlachoudis/bCNC
 ```
 pip install --upgrade bCNC
 ```
-
-CAMotics
---------
-
-Sources: https://github.com/CauldronDevelopmentLLC/CAMotics
-
-### Installation on Linux
-- Build from source: https://camotics.org/download.html#source-code
-    - Remove unused (?) dependency on libssl1.1 from SConstruct
-- Alternatively, follow the instructions from this page to install released dpkg: https://camotics.org/download.html#install
-    - Requires fixed version of libv8 on Kubuntu 22.04
-
 
 FlatCAM
 -------
@@ -75,4 +83,17 @@ You may need to make the following changes to `setup_ubuntu.sh`:
 ```
 
 ```
+
+CAMotics
+--------
+
+Sources: https://github.com/CauldronDevelopmentLLC/CAMotics
+
+### Installation on Linux
+- Build from source: https://camotics.org/download.html#source-code
+    - Remove unused (?) dependency on libssl1.1 from SConstruct
+- Alternatively, follow the instructions from this page to install released dpkg: https://camotics.org/download.html#install
+    - Requires fixed version of libv8 on Kubuntu 22.04
+
+
 
