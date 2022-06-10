@@ -80,9 +80,8 @@ git clone https://bitbucket.org/jpcgt/flatcam.git
 git checkout Beta
 ```
 You may need to make the following changes to `setup_ubuntu.sh`:
-```
-
-```
+- Install rasterio from `python3-rasterio` package instead of via pip
+- Pin pip package version `vispy==0.9.0`
 
 CAMotics
 --------

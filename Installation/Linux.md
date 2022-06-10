@@ -29,10 +29,11 @@ timedatectl set-local-rtc 1 --adjust-system-clock
 Common software packages to install
 ```
 apt install vim zsh screen ksshaskpass
-apt install blender spacenavd musescore audacity vlc kdenlive gimp inkscape
+apt install blender spacenavd audacity vlc kdenlive gimp inkscape
 apt install kdevelop clang clang-tidy cppcheck cmake cmake-gui git gitk kdiff3
 apt install python3-pip python3-serial python3-numpy python3-scipy python3-opencv python3-tk python3-pil.imagetk
 ```
+
 ### Replace Firefox snap with apt on Ubuntu
 ```
 sudo apt purge firefox
@@ -47,16 +48,6 @@ Pin-Priority: 1001
 ' | sudo tee /etc/apt/preferences.d/mozilla-firefox
 echo 'Unattended-Upgrade::Allowed-Origins:: "LP-PPA-mozillateam:${distro_codename}";' | sudo tee /etc/apt/apt.conf.d/51unattended-upgrades-firefox
 sudo apt install firefox
-```
-
-
-### KiCAD Installation
-
-Install from KiCAD PPA to get the latest versions:
-```
-sudo add-apt-repository --yes ppa:kicad/kicad-6.0-releases
-sudo apt update
-sudo apt install --install-recommends kicad
 ```
 
 ### Onedrive Sync
