@@ -1,6 +1,12 @@
 SSH Configuration Notes
 =======================
 
+Various Trips and Tricks
+------------------------
+
+- Disconnect a hanging SSH terminal: Press `Enter`, `~`, `.`.
+
+
 Setup SSH keys for password-less login
 --------------------------------------
 
@@ -41,7 +47,7 @@ Setup SSH agent for password-less login:
       ssh-add ~/.ssh/github_id_ed25519 </dev/null 2>/dev/null
   fi
   ```
-- Note: KWallet must be installed, with kwallet5_pam module (automatically installed with Kubuntu) to store passwords
+- Note: KWallet must be installed, with `kwallet5_pam` module (automatically installed with Kubuntu) to store passwords
   in default wallet protected by login credentials.
 - For terminals without KWallet (remote server, ..), use:
   ```
