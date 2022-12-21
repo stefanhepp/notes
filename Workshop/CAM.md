@@ -16,7 +16,7 @@ CAM Workflows
     - Use Autoleveling
 
 ### CNC Milling
-- Design: FreeCAD (CAM Plugin), Fusion360
+- Design: FreeCAD (CAM Plugin/Path Workbench), Fusion360
     - Generate GCode Toolpath
 - Toolpath Simulation: CAMotics
 - CNC Milling: bCNC
