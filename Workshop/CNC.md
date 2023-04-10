@@ -3,14 +3,16 @@ CNC 3018 Pro Settings
 
 Configuration
 -------------
-- Axes:
-  +X: left -> right
-  +Y: front -> back (relative to bed)
-  +Z: bottom -> top
-  Machine coordinate zero: right back top 
-  Home to zero -> machine coordinates always negative
 
-- bCNC Configuration
+### Axes:
+-  +X: left -> right
+-  +Y: front -> back (relative to bed)
+-  +Z: bottom -> top
+-  Machine coordinate zero: right back top 
+-  Home to zero -> machine coordinates always negative
+
+### bCNC Configuration
+```
 Acceleration x:	20.0
 Acceleration y: 20.0
 Acceleration z: 20.0
@@ -28,8 +30,10 @@ Spindle max: 12000
 DRO Zero Padding: 1
 Header gcode: M3 S12000; G4 P3; G0 Z10
 Footer gcode: G0 Z10; M5
+```
 
-- grbl Controller
+### grbl Controller
+```
 $0 Step pulse time [us]: 10.0
 $1 Step idle delay [ms]: 25
 $2 Step port invert mask: 0
@@ -67,6 +71,8 @@ $132 Z max travel [mm]: 61.0
 $140 X homing pull-off [mm]: 2.0
 $141 Y homing pull-off [mm]: 2.0
 $142 Z homing pull-off [mm]: 2.0
+```
+Config dump (`$$`):
 ```
 $0=10
 $1=25
@@ -112,12 +118,74 @@ $G
 ok
 ```
 
+G-Code
+------
+### 3018 G-Code settings
+- Header
+```
+G21 ; set units to MM
+G90 ; absolute distance mode
+```
+- Enable spindle
+```
+M3 S12000 ; Enable spindle, 12000rpm
+G4 P3     ; Pause (dwell) for 3 seconds
+```
+- Footer
+```
+M5  ; spindle off
+M30 ; program end
+```
+
+### G-Code commands
+```
+G0 X<x> Y<y> Z<z>  ; Rapid movement to position.
+G1 X<x> Y<y> Z<z>  ; Move to position using feed speed. 
+
+G4 P<time>         ; Pause (dwell) for <time> seconds.
+
+G17    ; Select XY plane
+G20    ; Use inches for units
+G21    ; Use millimeters for units
+
+G90    ; set absolute distance mode: G0,G1,.. command 
+         coordinates are absolute values
+G91    ; set relavite distance mode: G0,G1,.. command
+         coordinates are offsets to current position
+
+G94    ; Feed mode F<feed> in units per minute
+
+G54, G55, ..; Select work coordinate system
+
+M3 P<speed> ; Enable spindle with <speed> rpm
+M5          ; Stop spindle
+M30         ; program end
+```
+
+### Grbl commands
+```
+$$         ; Show settings
+$<x>=<val> ; Set setting <x> to <val>
+
+$N         ; Show startup codes
+$N<x>=val  ; Set startup codes
+
+$#         ; G-code parameters store the coordinate offset
+           ; values for G54-G59 work coordinates, G28/G30 
+           ; pre-defined positions, G92 coordinate offset, tool 
+           ; length offsets
+$G         ; Show G-Code parser state (coordinate mode, ..)
+$I         ; Show build info
+
+?          ; Query state
+!          ; Feed Hold
+```
+
 Feed rates
 ----------
 - Max Spindle Speed: 12000 RPM
 - 4-flute end mill 3.175mm
     - Cut direction: Climb cut (left)
-    - 
 
 Milling parameters
 ==================

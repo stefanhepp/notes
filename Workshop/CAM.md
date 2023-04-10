@@ -24,11 +24,26 @@ CAM Workflows
 
 ### Laser Cutting, Engraving
 - Design: Inkscape
+    - Create SVG/DXF File
+- V-Carve Path (GCode): Fusion360, F-Engrave
 - CNC Engraving: bCNC
 
 
 Software
 ========
+
+Used Software
+| Software | Linux | Windows |
+| -------- | ----- | ------- |
+| FreeCAD  | x | x |
+| Fusion360 |   | x | 
+| KiCAD | x | x |
+| Inkscape | x | x |
+| FlatCam | x | x |
+| F-Engrave | x | x |
+| PrusaSlicer | x | x |
+| CAMotics | x | x |
+| bCNC | x | x |
 
 FreeCAD
 -------
@@ -46,7 +61,7 @@ KiCAD
 
 Install from KiCAD PPA to get the latest versions:
 ```
-sudo add-apt-repository --yes ppa:kicad/kicad-6.0-releases
+sudo add-apt-repository --yes ppa:kicad/kicad-7.0-releases
 sudo apt update
 sudo apt install --install-recommends kicad
 ```

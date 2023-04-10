@@ -32,6 +32,8 @@ LetsEncrypt Setup:
 Postfix
 -------
 
+- Debug authentication or permission issues: Add `-v` to options for `submission`,.. in `master.cf`
+
 Dovecot
 -------
 
