@@ -114,5 +114,24 @@ Sources: https://github.com/CauldronDevelopmentLLC/CAMotics
 - Alternatively, follow the instructions from this page to install released dpkg: https://camotics.org/download.html#install
     - Requires fixed version of libv8 on Kubuntu 22.04
 
+Software Wishlist, TODOs
+------------------------
 
+### bCNC, grbl
+- grbl Simulator
+- Set offset for current position numerically
+- Detect misconfiguration of $$ configuration
+  - Values >0, < INT\_MAX
+- Software limits in bCNC
+  - Show boundary of machine
+  - do not send if moving outside area
+  - Recover after SW limit
+- Pendant support for Jogging
+- Keyboard shortcut list, shortcuts for jogging, stop
+- Grbl: 
+  - Hard limit/soft limit: recover from limit, retain position
+
+### KiCAD
+- Open, manage multiple projects
+- Design rules library: Load design rules from template, select system- and user- templates
 

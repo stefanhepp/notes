@@ -270,7 +270,6 @@ TODOs
     - Flash new version 1.1h
     + grbl enable Soft Limits, stop without hard reset. 
     - Enable (require) homing after reset (?)
-    -
 - GCode Sender (bCNC, ..)
     - Requirements
 	- Windows, Linux support
