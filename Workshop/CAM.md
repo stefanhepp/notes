@@ -8,7 +8,7 @@ CAM Workflows
     - Export to USB stick
 
 ### PCB Manufacturing
-- Design: KiCAD, Fusion360, LibrePCB
+- Design: KiCAD, Fusion360
     - Export to Gerber files
 - Generate GCode: FlatCam
 - Toolpath Simulation: CAMotics
@@ -65,6 +65,11 @@ sudo add-apt-repository --yes ppa:kicad/kicad-7.0-releases
 sudo apt update
 sudo apt install --install-recommends kicad
 ```
+
+### Plugins
+
+- Push-to-Aisler, Push-to-PCBWay
+    - Provided via official library manager
 
 LibrePCB
 --------
