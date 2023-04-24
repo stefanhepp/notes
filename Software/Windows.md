@@ -8,5 +8,10 @@ Sleep Mode and Power Saving
 - Run in Administrator commandline
   ```
   powercfg -requests
+  powercfg –devicequery wake_armed
+  ```
+- Check what caused the last wakeup
+  ```
+  powercfg -lastwake
   ```
 
