@@ -9,12 +9,18 @@ Board Design Rules
 - Pad size: 2.2mm
 
 ### CNC milled PCBs
+- Tools
+    - V-carve bit: 0.1mm
+    - Drill: 0.8mm / 1.0mm
+    - End mill: 1mm-2mm
+- All through-holes: 0.8mm / 1.0mm
 - Vias
-    - Hole Diameter: 0.6mm / 0.8mm (for 0.5mm / 0.6mm wires)
+    - Hole Diameter: 0.8mm (0.6mm wires)
     - Pad size: 2mm
 - Traces
-    - Trace size:
-    - Trace clearance: 
+    - Trace minimum size: 0.3mm
+    - Trace-to-trace clearance: 0.2mm
+    - Pour-to-trace clearance: 0.3mm
 
 
 ### Manufactured boards (Aisler, PCBWay, JLCPcb)
