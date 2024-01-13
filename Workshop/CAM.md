@@ -22,11 +22,17 @@ CAM Workflows
 - CNC Milling: bCNC
 
 
-### Laser Cutting, Engraving
+### Engraving
 - Design: Inkscape
     - Create SVG/DXF File
 - V-Carve Path (GCode): Fusion360, F-Engrave
 - CNC Engraving: bCNC
+
+### Laser Cutting
+- Design: Inkscape
+    - Create SVG file for cut paths (hide engraving images)
+    - Create PNG file for engraving (cut paths as light color for alignment, filter cut paths out)
+- CNC Laser Cutting: LaserGRBL
 
 
 Software
