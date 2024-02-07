@@ -64,8 +64,20 @@ OpenVPN
     ```
     ./easy-rsa build-client-full <user>.<device> nopass
     ```
+  - Print fingerprint of certificate
+    ```
+    openssl x509 -fingerprint -sha256 -in pki/issued/<cert>.crt -noout
+    ```
 
 - Bind to IPv6 and IPv4
   - `proto udp` binds to either IPv4 or IPv6 depending on operating system preferences
   - `proto udp6` binds to IPv6 only, but Linux will forward IPv4 to IPv6 sockets if `sysctl net.ipv6.bindv6only` is set to `0`
+
+- Start configuration at startup
+    ```
+    # To start /etc/openvpn/client/<name>.conf
+    systemctl enable openvpn-client@<name>
+    # To start /etc/openvpn/server/<name>.conf
+    systemctl enable openvpn-server@<name>
+    ```
 

@@ -63,6 +63,38 @@ sudo apt install firefox
 Debian Server Installation
 --------------------------
 
+
+### Upgrade to new release
+
+Following instructions from: https://www.debian.org/releases/bookworm/amd64/release-notes/ch-upgrading.en.html
+
+- Cleanup existing installation
+    ```
+    # Update to latest release
+    apt upgrade
+    apt upgrade
+    # Backup apt lists
+    dpkg --get-selections '*' > ~/dpkg_selections.txt
+    # Find leftover temp config files
+    find /etc -name '*.dpkg-*' -o -name '*.ucf-*' -o -name '*.merge-error'
+    # Ensure correct GPG keys verification
+    apt install gpgv
+    # Check for unclean installation
+    dpkg --audit
+    apt-mark showhold
+    ```
+- Replace distribution name to new release or `stable` in `/etc/apt/sources.list`
+- Run upgrade
+    ```
+    # Record the outputs
+    script -t 2>~/upgrade-bookwormstep.time -a ~/upgrade-bookwormstep.script
+    # Upgrade
+    apt update
+    apt full-upgrade
+    # Cleanup
+    apt autoremove
+    ```
+
 ### Firewall Setup
 
 Basic firewall setup via `ufw`:

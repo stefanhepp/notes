@@ -28,4 +28,30 @@ Virtualization Software:
 LXC, LXD
 --------
 
+- Create new virtual machine
+  - Create the container
+    ```
+    lxc-create --name mycontainer --template download -- --dist debian --release bookworm --arch arm64
+    ```
+  - Setup the container network configuration in `/var/lib/lxc/<container>`
+  - Disable systemd rubbish
+    ```
+    lxc-start --name mycontainer
+    lxc-attach --name mycontainer
+    # Run those commands in the container
+    # Disable DHCP and systemd resolv automagic
+    systemctl stop systemd-resolved
+    systemctl disable systemd-resolved
+    rm /etc/systemd/network/eth0.network
+    rm /etc/resolv.conf
+    cat <<EOF >/etc/resolv.conf
+    search mydomain
+    nameserver 8.8.8.8
+    EOF
+    ```
+  - Install the basics
+    ```
+    apt update
+    apt install vim zsh screen openssh-server
+    ```
 

@@ -1,8 +1,17 @@
 Mailserver Configuration Notes
 ==============================
 
-General Setup
--------------
+General
+-------
+
+- Send mail from commandline
+  ```
+  apt install mailutils
+  mail root
+  ```
+
+Mailserver Setup
+----------------
 
 Used Software:
 - *Postfix*: SMTP mail forwarder and filter. Delivers mails to dovecot.
@@ -31,6 +40,12 @@ LetsEncrypt Setup:
 
 Postfix
 -------
+
+- Setup a satellite server to forward local accounts mail to a mail server
+  - Install postfix, configure as satellite server
+  - Setup /etc/postfix/main.cf for TLS encryption and SASL authentication
+  - Setup /etc/aliases to forward local accounts to the domainadmin email address
+  - Run `postalias /etc/aliases` after editing the file
 
 - Debug authentication or permission issues: Add `-v` to options for `submission`,.. in `master.cf`
 
