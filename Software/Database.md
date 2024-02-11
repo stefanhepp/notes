@@ -21,4 +21,18 @@ MariaDB
   GRANT SELECT, SHOW VIEW ON *.* TO 'backupuser'@'%';
   FLUSH PRIVILEGES;
   ```
+- Privileges for backup user:
+  - Grant SELECT, SHOW VIEW privileges
+  - Use --single-transaction for mysqldump to disable LOCK TABLES
+- Restore SQL dump:
+  ```
+  # mysql -u root -p
+  CREATE DATABASE mydatabase;
+  USE mydatabase;
+  SOURCE path/to/mydatabase.sql;
+  ```
+- Rename user or change host of user:
+  ```
+  RENAME USER 'user'@'oldhost' TO 'user'@'newhost';
+  ```
 
