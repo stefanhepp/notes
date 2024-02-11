@@ -25,6 +25,10 @@ Linux UFW (Simple Firewall configuration)
     ```
     ufw allow 1234/tcp
     ```
+  - Add rule to allow a service from a specific source
+    ```
+    ufw allow from 192.168.1.1 to any app myservice
+    ```
   - Add forwarding rule to destination, using `route` command
     ```
     ufw route allow in on eth0 out on eth1 to 192.168.1.1 proto tcp port 56
