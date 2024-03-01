@@ -6,7 +6,21 @@ Editors
 
 ### Visual Studio Code
 
-Install on Linux: Use apt repository from here VSCodium: https://vscodium.com/
+#### Installation
+- Open source VS Codium (no telemetry, no proprietary extensions):
+  - Install on Linux: Use apt repository from here VSCodium: https://vscodium.com/
+- Proprietary VS Code:
+  - Install on Linux: Use apt repository from here VS Code: https://code.visualstudio.com/docs/setup/linux
+
+#### Plugins
+- PlatformIO: VS Code only
+- Python
+- Python Debugger
+- Markdown Editor
+- PlantUML
+- Jupyter
+- reStructureText
+
 
 Graphical User Interfaces
 -------------------------
