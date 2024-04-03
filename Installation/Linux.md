@@ -63,6 +63,13 @@ sudo apt install firefox
 Debian Server Installation
 --------------------------
 
+### Install some basic tools
+
+```
+# Installs 'lsb_release' tool
+apt install lsb-release
+```
+
 
 ### Upgrade to new release
 
