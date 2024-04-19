@@ -63,7 +63,7 @@ Flatcam Settings
     - Open Excellon
     - Drilling Tool
         - Select <2mm holes; avoid selecting duplicate holes
-        - Cut Z: -2.3mm
+        - Cut Z: -2.5mm
         - Travel Z: 2mm
         - Feedrate Z: 30mm
         - Spindle Speed: 12000
@@ -126,9 +126,9 @@ Flatcam Settings
     - Milling Parameters
         - Shape: C4 (4-flute endmill)
         - Tool Type: Finish
-        - Cut Z: -2.3mm
+        - Cut Z: -2.4mm
         - Multidepth: Yes
-        - DPP: 0.8mm
+        - DPP: 1.3mm
         - Travel Z: 2.0mm
         - Feedrate XY: 120mm
         - Feedrate Z: 60mm

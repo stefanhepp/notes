@@ -28,8 +28,8 @@ Start up: G90
 Spindle min: 0
 Spindle max: 12000
 DRO Zero Padding: 1
-Header gcode: M3 S12000; G4 P3; G0 Z10
-Footer gcode: G0 Z10; M5
+Header gcode: M3 S12000; G4 P3
+Footer gcode: M5
 ```
 
 ### grbl Controller
