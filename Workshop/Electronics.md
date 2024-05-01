@@ -39,20 +39,30 @@ Logic ICs
 
 Charge pump capacitors should be chosen larger than nominal values (factor 2) to compensate for degradation over time.
 
+Devices
+-------
+
+### Capacitors
+- Multilayer Ceramic (MLCC): low ESR, low ESL; ideal for bypass; high dependency on temperature, ..
+
+
 Development Boards, µCs
 -----------------------
 
 ### Arduino
 - Arduino Nano: ~7€ (compatible), 23€ (original)
     - AtMega 328P
-    - IOs
-    - UARTs:
+    - USB: UART (only, uses HW UART)
+    - IOs:
 
 - Arduino Nano ESP32: 20€
     - ESP32-S3
 
 - Arduino Nano Every: 15€
     - AtMega4809:
+
+- Arduino Micro:
+    - Supports USB client (keyboard, mouse, ..)
 
 - Arduino Uno: 22€
     - AtMega 328P

@@ -24,6 +24,8 @@ Board Design Rules
     - Trace minimum size: 0.28mm
     - Minimum clearance: 0.27mm
     - Minimum connection width: 0.25mm
+    - Zone settings:
+
 - Required tool
     - V-bit, 30degree, 0.1mm
     - Flatcam: 0.22mm V-Dia, -0.1mm Cut-Z
@@ -34,8 +36,8 @@ Board Design Rules
     - Pad size: 1.8mm
     - Pad minimum annulars: 0.4mm
 - Traces
-    - Trace minimum size: 0.3mm
-    - Minimum clearance: 0.32mm
+    - Trace minimum size: 0.32mm
+    - Minimum clearance: 0.31mm
     - Minimum connection width: 0.3mm
 - Required tool
     - V-bit, 30 degree, 0.1mm
@@ -110,7 +112,7 @@ Flatcam Settings
             - Increase overlap to remove any leftover areas if necessary
         - Tool Type: Iso (for isolation routing!)
         - Cut Z: -0.12
-        - Travel Z: 2mm
+        - Travel Z: 1mm
         - Feedrate: 120mm
         - Z feedrate: 60mm
         - FR rapids: 1500mm
