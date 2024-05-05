@@ -34,7 +34,7 @@ Board Design Rules
 - Vias
     - Hole Diameter: 0.8mm (0.6mm wires)
     - Pad size: 1.8mm
-    - Pad minimum annulars: 0.4mm
+    - Pad minimum annulars: 0.35mm
 - Traces
     - Trace minimum size: 0.32mm
     - Minimum clearance: 0.31mm
@@ -63,11 +63,12 @@ Flatcam Settings
     - Generate CNC Job
 - Drilling (0.8-1.0mm drills)
     - Open Excellon
+        - Edit .drl file to remove duplicate tools with same diameter
     - Drilling Tool
         - Select <2mm holes; avoid selecting duplicate holes
         - Cut Z: -2.5mm
-        - Travel Z: 2mm
-        - Feedrate Z: 30mm
+        - Travel Z: 1mm
+        - Feedrate Z: 40mm
         - Spindle Speed: 12000
         - Apply to all tools!
         - Tool Change: yes
@@ -93,6 +94,22 @@ Flatcam Settings
         - Pick tool from DB: Endmill 2mm
         - Preprocessor: grbl_11
     - Generate CNC Job
+
+### Flatcam Preferences
+- Gerber Options
+    - Export units: mm
+- Geometry
+    - Toolchange Z: 25mm
+    - End move Z: 25mm
+    - Set default Preprocessor: Grbl_11
+    - Enable Fast Plunge
+- Tools / Drilling
+    - Enable Toolchange
+    - Toolchange Z: 25mm
+    - End move Z: 25mm
+    - Drilling Preprocessor: Grbl_11
+    - Fast Plunge: yes
+    - Fast Retract: yes
 
 ### Flatcam Tool Database
 - Tool Settings: V-Bit 0.1mm 30degree
@@ -134,6 +151,14 @@ Flatcam Settings
         - Travel Z: 2.0mm
         - Feedrate XY: 120mm
         - Feedrate Z: 60mm
+        - FR Rapids: 1500mm
+        - Spindle Speed: 12000
+- Tool Settings: Drill 0.8mm, 0.9mm, 1.0mm
+    - Diameter: 0.8mm, ..
+        - Cut Z: -2.5mm
+        - Travel Z: 1mm
+        - Feedrate XY: 120mm
+        - Feedrate Z: 40mm
         - FR Rapids: 1500mm
         - Spindle Speed: 12000
 

@@ -16,9 +16,9 @@ Configuration
 Acceleration x:	20.0
 Acceleration y: 20.0
 Acceleration z: 20.0
-Feed max x: 2000.0
-Feed max y: 2000.0
-Feed max z: 2000.0
+Feed max x: 1800.0
+Feed max y: 1800.0
+Feed max z: 1800.0
 Travel x: 306.0
 Travel y: 198.0
 Travel z: 61.0
@@ -59,9 +59,9 @@ $32 Laser mode enable: off
 $100 X steps/mm: 800.0
 $101 Y steps/mm: 800.0
 $102 Z steps/mm: 800.0
-$110 X max rate [mm/min]: 2000.0
-$111 Y max rate [mm/min]: 2000.0
-$112 Z max rate [mm/min]: 500.0
+$110 X max rate [mm/min]: 1800.0
+$111 Y max rate [mm/min]: 1800.0
+$112 Z max rate [mm/min]: 800.0
 $120 X acceleration [mm/sec]: 20.0
 $121 Y acceleration [mm/sec]: 20.0
 $122 Z acceleration [mm/sec]: 20.0
@@ -100,9 +100,9 @@ $100=800.000
 $101=800.000
 $102=800.000
 $103=31.111
-$110=2000.000
-$111=2000.000
-$112=500.000
+$110=1800.000
+$111=1800.000
+$112=800.000
 $113=200.000
 $120=20.000
 $121=20.000
