@@ -90,10 +90,20 @@ bCNC
 
 Sources: https://github.com/vlachoudis/bCNC
 
-### Installation on Linux
+### Installation on Linux, Windows
 ```
 pip install --upgrade bCNC
 ```
+
+### Toolchange (M6 command)
+- In "Probe" menu, select "Tool" command
+    - Set Policy to "Manual tool change (WCO)"
+        - WCO will adjust world coordinates to new tool length
+        - TLO will adjust TLO offset, keep World coordinates the same
+    - Pause Before and After
+    - Set Tool change position and Probe position
+    - Set Distance: positive value, probe *down* from from Probe position (e.g, distance "10mm" will probe downwards from Probe position)
+- For details, see https://github.com/vlachoudis/bCNC/wiki/Tool-Change
 
 FlatCAM
 -------
@@ -104,10 +114,21 @@ Sources: https://bitbucket.org/jpcgt/flatcam.git
 ```
 git clone https://bitbucket.org/jpcgt/flatcam.git
 git checkout Beta
+pip install -r requirements.txt
 ```
 You may need to make the following changes to `setup_ubuntu.sh`:
 - Install rasterio from `python3-rasterio` package instead of via pip
 - Pin pip package version `vispy==0.9.0`
+
+### Installation on Windows
+Use the provided Windows installer.
+
+For installation from source:
+- Get flatcam from my repository
+- Install Miniforge or Anaconda
+    - Recommended to create a new environment: make sure PyQt6 is not installed in the same environment.
+    - `conda install gdal` (if needed?)
+- pip install -r requirements.txt
 
 CAMotics
 --------
@@ -124,8 +145,9 @@ Software Wishlist, TODOs
 ------------------------
 
 ### bCNC, grbl
+- 3D Visualization
 - grbl Simulator
-- Set offset for current position numerically
+- Move to position: Enter position manually (WPOS / MPOS)
 - Detect misconfiguration of $$ configuration
   - Values >0, < INT\_MAX
 - Software limits in bCNC
@@ -139,5 +161,4 @@ Software Wishlist, TODOs
 
 ### KiCAD
 - Open, manage multiple projects
-- Design rules library: Load design rules from template, select system- and user- templates
 
