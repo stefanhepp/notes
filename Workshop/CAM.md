@@ -111,24 +111,41 @@ FlatCAM
 Sources: https://bitbucket.org/jpcgt/flatcam.git
 
 ### Installation on Linux
-```
-git clone https://bitbucket.org/jpcgt/flatcam.git
-git checkout Beta
-pip install -r requirements.txt
-```
-You may need to make the following changes to `setup_ubuntu.sh`:
-- Install rasterio from `python3-rasterio` package instead of via pip
-- Pin pip package version `vispy==0.9.0`
+- Installation from original repository:
+    ```
+    git clone https://bitbucket.org/jpcgt/flatcam.git
+    cd flatcam
+    git checkout Beta
+    pip install -r requirements.txt
+    ```
+    You may need to make the following changes to `setup_ubuntu.sh`:
+    - Install rasterio from `python3-rasterio` package instead of via pip
+    - Pin pip package version `vispy==0.9.0`
+- Installation from my repository
+    ```
+    git clone git@github.com:stefanhepp/flatcam.git
+    cd flatcam
+    git checkout Beta
+    pip install -r requirements.txt
+    ```
 
 ### Installation on Windows
-Use the provided Windows installer.
-
-For installation from source:
-- Get flatcam from my repository
-- Install Miniforge or Anaconda
+- Get flatcam from github
+    ```
+    git clone git@github.com:stefanhepp/flatcam.git
+    cd flatcam
+    git checkout Beta
+    ```
+- Install Miniforge3
     - Recommended to create a new environment: make sure PyQt6 is not installed in the same environment.
-    - `conda install gdal` (if needed?)
-- pip install -r requirements.txt
+- Inside Miniforge shell, run
+    ```
+    conda create -n flatcam
+    conda activate flatcam
+    conda install gdal
+    cd flatcam
+    pip install -r requirements.txt
+    ```
 
 CAMotics
 --------
