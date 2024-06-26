@@ -1,6 +1,22 @@
 PCB Design Notes
 ================
 
+TLDR; Best Settings
+-------------------
+
+### Settings for PCB milling
+- KiCAD: Design template 0.32mm
+- FlatCAM:
+  - Use FlatCAM Beta-bugfix branch from my fork
+  - Mirror X all Gerber and drill files!
+  - Isolation: 0.30mm 30° V-bit, -0.08mm Z-Cut, 35% stepover, 2 passes
+  - Drilling 0.8mm - 1.6mm: Drilling, 120mm/s feedrate, fast retract, TSA or Metaheuristic (Excellong Options), grbl_11 preprocessor (use M6)
+  - Drilling >2.0mm: Milling, 2mm endmill, 30mm/s feedrate
+- CNC machine: 
+  - Use bCNC from my fork
+  - Isolation: 0.1mm 30° V-bit, use auto-leveling
+  - Milling: 2mm endmill, 2-flute upcut
+
 Board Design Rules
 ------------------
 
@@ -28,7 +44,7 @@ Board Design Rules
 
 - Required tool
     - V-bit, 30degree, 0.1mm
-    - Flatcam: 0.22mm V-Dia, -0.1mm Cut-Z
+    - Flatcam: 0.26mm V-Dia, -0.1mm Cut-Z
 
 ### PCB Milling, routing through DIP sockets but not pin headers
 - Vias
@@ -41,7 +57,7 @@ Board Design Rules
     - Minimum connection width: 0.3mm
 - Required tool
     - V-bit, 30 degree, 0.1mm
-    - Flatcam: 0.25mm V-Dia, -0.1mm Cut-Z
+    - Flatcam: 0.30mm V-Dia, -0.1mm Cut-Z
 
 ### Manufactured boards (Aisler, PCBWay, JLCPcb)
 
@@ -61,14 +77,15 @@ Flatcam Settings
     - Generate Geometry
         - Preprocessor: grbl_11
     - Generate CNC Job
-- Drilling (0.8-1.0mm drills)
+- Drilling (0.8-1.6mm drills)
     - Open Excellon
         - Edit .drl file to remove duplicate tools with same diameter
     - Drilling Tool
         - Select <2mm holes; avoid selecting duplicate holes
         - Cut Z: -2.5mm
         - Travel Z: 1mm
-        - Feedrate Z: 40mm
+        - Feedrate Z: 120mm
+        - Fast retract enabled
         - Spindle Speed: 12000
         - Apply to all tools!
         - Tool Change: yes
@@ -128,7 +145,7 @@ Flatcam Settings
             - Adjust V-Dia so that the calculated diameter is 0.01mm smaller than the minimum clearance of the PCB
             - Increase overlap to remove any leftover areas if necessary
         - Tool Type: Iso (for isolation routing!)
-        - Cut Z: -0.12
+        - Cut Z: -0.08mm
         - Travel Z: 1mm
         - Feedrate: 120mm
         - Z feedrate: 60mm
@@ -161,6 +178,35 @@ Flatcam Settings
         - Feedrate Z: 40mm
         - FR Rapids: 1500mm
         - Spindle Speed: 12000
+
+PCB Soldermask
+--------------
+
+### FlatCam
+- Open mask Gerber file
+- Optionally use Corner Marker tool to create corner alignment markers
+- Tools > Film PCB
+    - Film Type: Positive
+    - File Type: SVG
+- Open SVG with Inkscape
+    - Layout SVG masks into A4 paper
+
+### Apply masks
+- Create masks
+    - Print 2 copies of the mask
+    - Cutout masks and overlay the 2 copies, fix copies with tape
+- Apply dry film mask
+    - Apply mask in darkened room, outside sunlight
+    - Remove bottom protective film
+    - Apply mask to PCB, attach on top edge only
+    - Use laminator to press mask onto PCB: 200°C, laminate till no bubbles left
+- Etch mask
+    - Apply mask, fix position with tape
+    - Cure with UV light for x minutes
+    - Etch solution: 1g of natriumsulphate (PH+ for pools) for x l of water
+    - Etch for x minutes, remove uncured mask with brush
+    - Dry and clean PCB
+    - Second cure with UV light for x minutes
 
 
 PCB Manufacturers

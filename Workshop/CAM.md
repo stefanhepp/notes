@@ -158,13 +158,28 @@ Sources: https://github.com/CauldronDevelopmentLLC/CAMotics
 - Alternatively, follow the instructions from this page to install released dpkg: https://camotics.org/download.html#install
     - Requires fixed version of libv8 on Kubuntu 22.04
 
+Firmware
+--------
+### grbl
+- URL: https://github.com/gnea/grbl
+- AtMega328p
+
+### grblHAL
+- URL: https://github.com/grblHAL
+- 32bit processors, simulator
+- Breakout boards: https://www.grbl.org/breakboards
+
+### uCNC
+- URL: https://github.com/Paciente8159/uCNC
+
 Software Wishlist, TODOs
 ------------------------
 
 ### bCNC, grbl
+- Show tool message for tool change
+- Move to position: Enter position manually (WPOS / MPOS)
 - 3D Visualization
 - grbl Simulator
-- Move to position: Enter position manually (WPOS / MPOS)
 - Detect misconfiguration of $$ configuration
   - Values >0, < INT\_MAX
 - Software limits in bCNC
@@ -175,6 +190,43 @@ Software Wishlist, TODOs
 - Keyboard shortcut list, shortcuts for jogging, stop
 - Grbl: 
   - Hard limit/soft limit: recover from limit, retain position
+
+### Candle
+- Bugfix: Stop probing with jog stop
+- Stop/Pause button: Stop probing, jogging, running
+- UI Layout
+  - Settings buttins: Open File, Settings, Enable Laser
+  - General buttons: Pause, Stop, Unlock, Reset, Home, Safe Position
+  - User Buttons
+  - Movement buttons: Zero Z, Zero XY, Set Pos, Move To, Reset Pos, Restore Origin; Move to XY origin; Scan boundary
+  - Jogging controls: always visible
+  - Tooboxes:
+    - Heightmap
+    - Probe: Probe XY, Probe Z, set Probe offset; goto probe position
+    - Tool Change: Set probe position, set tool change position (get from current pos), set M6 mode
+  - Larger console
+  - Grbl Settings
+- Enable/Disable Laser mode
+- Heightmap: Fix grid preview?!
+- Movement
+  - Set current WPOS manually
+  - Move to position, enter position (absolute G90 or relative G91, rapid G0 or normal G1)
+- TLO support
+- Tool Change M6 Support
+  - Ignore, Adjust Z, Adjust TLO, Send M6, Custom Script
+  - Set Probe position, Manual Toolchange position
+- Probing
+  - Toolbox
+  - Adjust Z probe
+- Visualization: Spinning -> change color tool
+
+Candle Forks
+- https://github.com/elhernes/Candle: RPN, Macros, Pendant support, some PRs merged, LCD numbers
+- https://github.com/Schildkroet/Candle2: alive project, copied ~5years ago (no fork)
+- https://github.com/stribor/Candle: OSX, new Qt support?
+- https://github.com/mar0x/Candle: mostly OSX build fixes?
+- https://github.com/Denvi/Candle/tree/Experimental: Moveable panels, Plugins
+- https://github.com/etet100/G-Pilot-Formerly-Candle: Heavy rewrite, overloaded, virtual grbl target
 
 ### KiCAD
 - Open, manage multiple projects
