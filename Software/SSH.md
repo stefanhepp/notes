@@ -13,9 +13,8 @@ Setup SSH keys for password-less login
 Setup SSH key authentication:
 - Generate SSH keys
   ```
-  # Use filename e.g.: github_id_ed25519
   # Enter passphrase for key
-  ssh-keygen -t ed25519 -C "user@host"
+  ssh-keygen -t ed25519 -C "`whoami`@`hostname`" -f ~/.ssh/github_id_ed25519
   ```
 - Upload `.pub` file to server (add to `~/.ssh/authorized_keys`)
   ```
