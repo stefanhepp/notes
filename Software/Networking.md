@@ -72,6 +72,11 @@ OpenVPN
     ```
     openssl x509 -fingerprint -sha256 -in pki/issued/<cert>.crt -noout
     ```
+  - Renew certificates
+    ```
+    ./easy-rsa show-expire
+    ./easy-rsa renew <user>.<device> nopass
+    ```
 
 - Bind to IPv6 and IPv4
   - `proto udp` binds to either IPv4 or IPv6 depending on operating system preferences
