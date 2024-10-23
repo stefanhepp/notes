@@ -59,6 +59,13 @@ sudo apt install firefox
   - `systemctl --user enable onedrive`
   - `systemctl --user start onedrive`
 
+### Install Nvidia drivers (Ubuntu)
+```
+# Install matching nvidia drivers
+# Make sure to use linux-image-nvidia kernel for booting
+sudo ubuntu-drivers list
+sudo ubuntu-drivers install
+```
 
 Debian Server Installation
 --------------------------
