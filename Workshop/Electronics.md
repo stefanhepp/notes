@@ -93,7 +93,7 @@ WIFI, JTAG, cheap, but not as powerful, lots of variants and clones
 
 - ESP32 NodeMCU: ~7€
     - ESP32-WROOM-32
-    - 1x ADC, 1x PWM, 1x SPI, 1x I2C, 1x UART
+    - 1x ADC, 16x PWM, 1x SPI, 1x I2C, 3x UART (1 UART used for USB serial console, can be changed)
 
 - ESP32-S3 Devkit: 23€
     - Xtensa dualcore, 240Mhz, 512Kb RAM, 384Kb ROM, 8Mb Flash?
@@ -101,4 +101,26 @@ WIFI, JTAG, cheap, but not as powerful, lots of variants and clones
     - 2x I2S, 14x Touch
     - 4x SPI, 3x UART, 2x I2C
     - 45 GPIOs
+
+#### ESP32 JTAG Debugging with PlatformIO
+- When JTAG TDI pin is connected, upload via USB does not work. Upload via JTAG instead
+  ```
+  upload_tool = esp-prog
+  ```
+- To start debugging, use F5 (Start Debugging). Check output of "Debug Output" tab for progress or issues!
+- platformio included debugger depends on python2.7. Workaround: build ESP-IDF debugger
+  - Follow instructions from https://docs.espressif.com/projects/esp-idf/en/stable/esp32/get-started/linux-macos-setup.html
+    ```
+    sudo apt-get install git wget flex bison gperf python3 python3-pip python3-venv cmake ninja-build ccache libffi-dev libssl-dev dfu-util libusb-1.0-0
+    mkdir -p ~/esp
+    cd ~/esp
+    git clone -b v5.4.1 --recursive https://github.com/espressif/esp-idf.git
+    cd ~/esp/esp-idf
+    ./install.sh esp32
+    cd ~/.platformio/packages/toolchain-xtensa-esp32/bin/
+    mv xtensa-esp32-elf-gdb xtensa-esp32-elf-gdb.orig
+    cp ~/.espressif/tools/xtensa-esp-elf-gdb/14.2_20240403/xtensa-esp-elf-gdb/bin/xtensa-esp32-elf-gdb .
+    cp ~/.espressif/tools/xtensa-esp-elf-gdb/14.2_20240403/xtensa-esp-elf-gdb/bin/xtensa-esp-elf-gdb-no-python .
+    cp ~/.espressif/tools/xtensa-esp-elf-gdb/14.2_20240403/xtensa-esp-elf-gdb/lib/xtensa_esp32.so ../lib/
+    ```
 
