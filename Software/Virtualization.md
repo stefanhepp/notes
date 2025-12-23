@@ -42,6 +42,9 @@ LXC, LXD
     # Disable DHCP and systemd resolv automagic
     systemctl stop systemd-resolved
     systemctl disable systemd-resolved
+    # Disable network configuration, interferes with static configuration by LXC
+    systemctl stop systemd-networkd
+    systemctl disable systemd-networkd
     rm /etc/systemd/network/eth0.network
     rm /etc/resolv.conf
     cat <<EOF >/etc/resolv.conf
@@ -49,6 +52,7 @@ LXC, LXD
     nameserver 8.8.8.8
     EOF
     ```
+  - Reboot the container to have LXC static configuration take effect
   - Install the basics
     ```
     apt update
