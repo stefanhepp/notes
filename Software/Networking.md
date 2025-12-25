@@ -44,6 +44,15 @@ Linux UFW (Simple Firewall configuration)
     COMMIT
     ```
 
+Server Security
+---------------
+
+- Install fail2ban to block repeated ssh failed logins
+  ```
+  apt install fail2ban
+  fail2ban-client status sshd
+  ```
+
 OpenVPN
 -------
 
