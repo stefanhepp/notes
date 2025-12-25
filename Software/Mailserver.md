@@ -53,6 +53,12 @@ Postfix
 Dovecot
 -------
 
+- To check authentication issues: in 10-logging.conf enable:
+  ```
+  auth_verbose = yes
+  log_debug = category=auth or category=mail
+  ```
+
 
 Mail Validation and Signature
 -----------------------------
