@@ -39,6 +39,12 @@ Logic ICs
 
 Charge pump capacitors should be chosen larger than nominal values (factor 2) to compensate for degradation over time.
 
+### UART Bridges
+
+- SC16IS750 /52/60/62: SPI to 1/2x UART, 4Mbps/15Mbps SPI
+- MAX3107: SPI to UART
+- XR20M1172: SPI to dual UART
+
 Devices
 -------
 
@@ -57,12 +63,15 @@ Development Boards, µCs
 
 - Arduino Nano ESP32: 20€
     - ESP32-S3
+    - 2x UART
 
 - Arduino Nano Every: 15€
     - AtMega4809:
 
 - Arduino Micro:
-    - Supports USB client (keyboard, mouse, ..)
+    - ATMega32U4: 32Kb Flash, 2Kb RAM, 1KB ROM, 16Mhz
+    - 20 GPIO: 7 PWM, 12 Analog, 1x SPI, 1x I2C, 1x UART
+    - Supports USB client (USB 2, 12Mbit, 6 endpoints; keyboard, mouse, ..)
 
 - Arduino Uno: 22€
     - AtMega 328P
@@ -91,9 +100,15 @@ More stable and optimized libraries than ESP32?, more power and more IOs, but no
 ### ESP32
 WIFI, JTAG, cheap, but not as powerful, lots of variants and clones
 
+- Modules
+  - ESP32-WROOM-32: 4Mb Flash, 450Kb ROM, 520Kb RAM; 3x UART, 2x I2C, 1x I2S, 16x PWM, WIFI, Bluetooh
+
+  - ESP32-S3-N16R8: 16Mb Flash, 8Mb RAM, 3x UART, 2x I2C, 2x I2S, 4x SPI, 8x PWM, USB 2.0 OTG, WIFI, Bluetooh
+
 - ESP32 NodeMCU: ~7€
     - ESP32-WROOM-32
     - 1x ADC, 16x PWM, 1x SPI, 1x I2C, 3x UART (1 UART used for USB serial console, can be changed)
+    - Only USB flashing+serial
 
 - ESP32-S3 Devkit: 23€
     - Xtensa dualcore, 240Mhz, 512Kb RAM, 384Kb ROM, 8Mb Flash?
@@ -101,6 +116,25 @@ WIFI, JTAG, cheap, but not as powerful, lots of variants and clones
     - 2x I2S, 14x Touch
     - 4x SPI, 3x UART, 2x I2C
     - 45 GPIOs
+
+### Raspberry PI Pico
+Cheap, easily available
+
+- Versions:
+    - 'W': With Bluetooth, WLAN
+
+- Raspberry PI 
+    - RP2040: Dual Cortex-M0, 133Mhz, 32bit, 2Mb Flash, 256Kb RAM
+    - 16x PWM, 2x I2C, 2x UART, 2x SPI, 1x ADC 12bit, 
+    - Serial Wire Debug (SWD)
+    - USB 1.1 Device/Host
+    - 30 GPIOs @ 3.3V
+ 
+- Raspberry PI Pico 2 W
+    - RP2350A: Dual Cortex-M33 150Mhz, 32bit, 4Mb Flash, 512Kb RAM
+    - Bluetooth, WLAN
+    - 24x PWM, 2x I2C, 2x UART
+    - 30 GPIOs @ 3.3V
 
 #### ESP32 JTAG Debugging with PlatformIO
 - When JTAG TDI pin is connected, upload via USB does not work. Upload via JTAG instead
