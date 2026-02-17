@@ -44,6 +44,38 @@ Linux UFW (Simple Firewall configuration)
     COMMIT
     ```
 
+Server Security
+---------------
+
+- Install fail2ban to block repeated ssh failed logins
+  ```
+  apt install fail2ban
+  fail2ban-client status sshd
+  ```
+
+DNS, Resolving
+--------------
+
+### Have dedicated DNS server for a specific domain
+- Install `dnsmasq`
+- Edit `/etc/dnsmasq.conf`
+  ```
+  # disable DHCP
+  no-dhcp-interface=
+  # read default nameservers from separate conf file
+  resolv-file=/etc/resolv-dnsmasq.conf
+  # add DNS server for subdomain
+  server=/home/192.168.1.1
+  server=/1.168.192.in-addr.arpa/192.168.1.1
+  ```
+- `systemctl restart dnsmasq`
+- Edit `/etc/resolv.conf` to use dnsmasq
+  ```
+  search home
+  nameserver 127.0.0.1
+  nameserver 8.8.8.8
+  ```
+
 OpenVPN
 -------
 
@@ -89,4 +121,36 @@ OpenVPN
     # To start /etc/openvpn/server/<name>.conf
     systemctl enable openvpn-server@<name>
     ```
+
+IPv6
+----
+
+### Addresses
+
+Unicast address format:
+- 48bit routing prefix, 16bit subnet = 64bit network prefix
+- 64bit interface identifier (via DHCP6, random or manual)
+
+Network addresses:
+- fe80::/64 : link-local addresses, non-routable; only host interface identifer is used
+- fd00::/8  : locally assigned unique addresses (local network, can be routed in same domain); 40bit prefix is randomly assigned, plus 16bit subnet
+- ff00::/8  : multicast addresses; 3rd octet is flags, 4th octet is scope
+  - ffx1::/16 : interface local
+  - ffx2::/16 : link-local (224.0.0.0/24)
+  - ffx3::/16 : realm-local (239.255.0.0/16) 
+  - ffx8::/16 : organization-local (239.192.0.0/14)
+  - ff02::1   : all nodes on local network
+  - ff0x::101 : NTP
+  - ff0x::181 : PTP messages
+  - ff02::6b  : PTP Pdelay messages
+- 100::/64  : Discard traffic
+- 2000::/3  : Internet address 
+- 2001:678::/29 : Provider-independent end user IP addresses
+- ::ffff:0:0/96 : IPv4 mapped addresses; shown as e.g. ::ffff:192.168.0.1
+- 64:ff9b::/96  : NAT64 IPv6/IPv4 translation (Internet)
+- 64:ff9b:1::/48 : local-use NAT64 IPv6/IPv4 translation (local network)
+- f02::1:ff00:0/104 : solicited-node link-local multicast address for SLAAC; lower 24bit = from unicast/anycast address
+- 2001:db8::/32  : Addresses in documentation, examples
+- ::1 : localhost (link-local address)
+
 

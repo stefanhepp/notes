@@ -17,6 +17,7 @@ Used Software:
 - *Postfix*: SMTP mail forwarder and filter. Delivers mails to dovecot.
 - *Dovecot*: IMAP server and manages storage of mails.
 - *Roundcube*: Webmail server.
+- *opendkim*: DKIM signature and validation
 
 Common ports:
 - 25/tcp: Postfix SMTP
@@ -52,4 +53,38 @@ Postfix
 Dovecot
 -------
 
+- To check authentication issues: in 10-logging.conf enable:
+  ```
+  auth_verbose = yes
+  log_debug = category=auth or category=mail
+  ```
 
+
+Mail Validation and Signature
+-----------------------------
+
+### SPF: Authenticate sender server via DNS entry
+```
+      TXT "v=spf1 mx ~all"
+```
+
+Syntax:
+- 'mx' means, all MX records are valid senders
+- '~all': soft check; mark other emails as suspicious
+- '-all': hard check; reject other servers for this domain
+
+### DKIM: Sign and verify email
+```
+default._domainkey TXT "v=DKIM1; h=sha256; k=rsa; p=<public key>"
+```
+
+- `default` is the selector
+- Check with `dig default._domainkey.yourdomain.org`
+- Use opendkim as postfix milter to sign and check emails
+- See this page for instructions:
+  https://gist.github.com/howyay/57982e6ba9eedd3a5662c518f1b985c7
+
+### DMARC: Define rules for DKIM checked emails
+```
+_dmarc TXT "v=DMARC1; p=quarantine; rua=mailto:postmaster@yourdomain.org;"
+```
