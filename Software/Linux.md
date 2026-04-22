@@ -19,6 +19,11 @@ Enable Wake-on-LAN for magic packets (option `g`):
 ethtool -s enps6s0 wol g
 ```
 
+Suspend computer from commandline:
+```
+systemctl suspend
+```
+
 Find out what prevents going to sleep
 ```
 # Systemd inhibitors, not being helpful...
